@@ -1,6 +1,10 @@
 import globals from 'globals';
 import pluginJs from '@eslint/js';
 import tseslint from 'typescript-eslint';
+import prettier from 'prettier';
+
+/** Resolve Prettier configuration */
+const prettierConfig = prettier.resolveConfig.sync(process.cwd()) || {};
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
@@ -15,8 +19,7 @@ export default [
   },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
-  prettierConfig,
-  prettierPlugin.configs.recommended,
+  prettierConfig, // Use the resolved Prettier config
   {
     ignores: ['node_modules', 'dist'],
     rules: {
