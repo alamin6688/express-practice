@@ -32,7 +32,7 @@ export type Student = {
   emergencyContactNo: string;
   bloodGroup?: 'A+' | 'A-' | 'B+' | 'B-' | 'AB+' | 'AB-' | 'O+' | 'O-';
   presentAddress: string;
-  permanenttAddress: string;
+  permanentAddress: string;
   guardian: Guardian;
   localGuardian: LocalGuardian;
   profileImg: string;

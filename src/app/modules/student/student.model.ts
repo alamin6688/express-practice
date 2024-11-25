@@ -13,13 +13,13 @@ const userNameSchema = new Schema<UserName>({
     required: [true, 'First name is required'],
     trim: true,
     maxlength: [20, 'First name can not be more than 20 characters'],
-    validate: {
-      validator: function (value: string) {
-        const firstNameStr = value.charAt(0).toUpperCase() + value.slice(1);
-        return firstNameStr === value;
-      },
-      message: '{VALUE} is not in captalize format',
-    },
+    // validate: {
+    //   validator: function (value: string) {
+    //     const firstNameStr = value.charAt(0).toUpperCase() + value.slice(1);
+    //     return firstNameStr === value;
+    //   },
+    //   message: '{VALUE} is not in captalize format',
+    // },
   },
   middleName: {
     type: String,
@@ -29,10 +29,10 @@ const userNameSchema = new Schema<UserName>({
     type: String,
     required: [true, 'Last name is required'],
     trim: true,
-    validate: {
-      validator: (value: string) => validator.isAlpha(value),
-      message: '{VALUE} is not valid',
-    },
+    // validate: {
+    //   validator: (value: string) => validator.isAlpha(value),
+    //   message: '{VALUE} is not valid',
+    // },
   },
 });
 
@@ -108,10 +108,10 @@ const studentSchema = new Schema<Student>({
     type: String,
     required: [true, 'Email is required'],
     // unique: true,
-    validate: {
-      validator: (value: string) => validator.isEmail(value),
-      message: '{VALUE} is not valid email type',
-    },
+    // validate: {
+    //   validator: (value: string) => validator.isEmail(value),
+    //   message: '{VALUE} is not valid email type',
+    // },
   },
   contactNo: {
     type: String,
@@ -129,7 +129,7 @@ const studentSchema = new Schema<Student>({
     type: String,
     required: [true, 'Present address is required'],
   },
-  permanenttAddress: {
+  permanentAddress: {
     type: String,
     required: [true, 'Permanent address is required'],
   },
