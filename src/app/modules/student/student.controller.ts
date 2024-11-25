@@ -1,5 +1,6 @@
 import { Request, response, Response } from 'express';
 import { StudentServices } from './student.service';
+import { error } from 'console';
 
 const createStudent = async (req: Request, res: Response) => {
   try {
@@ -13,7 +14,11 @@ const createStudent = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (err) {
-    console.log(err);
+    res.status(500).json({
+      success: false,
+      message: 'Something went wrong!',
+      error: err,
+    });
   }
 };
 
